@@ -1,4 +1,4 @@
-# CAIA Navigator
+# Webapp Navigator
 
 CAIA Navigator is a local prototype for cancer navigation workflow support. It lets you manage a patient queue, import CSV data, classify barriers, and preview simple rule-based risk predictions for delay, disengagement, and access risk.
 
