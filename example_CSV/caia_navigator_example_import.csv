@@ -1,0 +1,6 @@
+id,name,age,gender,language,payer,cancerType,stage,daysSinceFinding,primaryBarrier,secondaryBarrier,priority,socialRisk,missedVisits,insuranceDelayDays,referralComplete,transportationRisk,languageBarrier,notes
+PT-2001,Elena Martinez,64,Female,Spanish,Medicaid,Lung,Referral Ordered,82,Language / Communication,Transportation Access,Critical,5,2,0,false,true,true,Needs interpreter-assisted outreach and urgent referral follow-up.
+PT-2002,James Holloway,58,Male,English,Commercial,Colorectal,Diagnostic Workup,47,Scheduling Friction,Low Engagement,High,3,1,5,true,false,false,Rescheduled twice and requires navigator reminder calls.
+PT-2003,Amina Yusuf,46,Female,Arabic,Marketplace,Breast,Consult Scheduled,29,Language / Communication,Care Fragmentation,Moderate,2,0,0,true,false,true,Interpreter requested for consult and written instructions.
+PT-2004,Robert Gaines,71,Male,English,Medicare,Prostate,Treatment Planning,18,Insurance / Authorization,Psychosocial,Moderate,2,1,7,true,false,false,Authorization delay affecting treatment start timeline.
+PT-2005,Linh Tran,52,Female,Vietnamese,Commercial,GI,Abnormal Finding,56,Transportation Access,Scheduling Friction,High,4,1,0,false,true,true,Missed first follow-up due to transport and language barriers.

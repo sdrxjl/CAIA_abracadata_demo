@@ -5,7 +5,7 @@ cd /d "%~dp0"
 set "APP_URL=http://127.0.0.1:8000"
 set "LOG_FILE=%~dp0server.log"
 set "PYTHON_CMD="
-set "LOCAL_ANACONDA=C:\Users\hanyi\anaconda3\python.exe"
+set "LOCAL_ANACONDA=%USERPROFILE%\anaconda3\python.exe"
 
 netstat -ano | findstr /r /c:":8000 .*LISTENING" >nul 2>nul
 if not errorlevel 1 goto :open_browser

@@ -1,0 +1,5 @@
+id,name,age,gender,language,payer,cancerType,stage,daysSinceFinding,primaryBarrier,secondaryBarrier,priority,socialRisk,missedVisits,insuranceDelayDays,referralComplete,transportationRisk,languageBarrier,notes
+PT-3201,Fatima Ali,62,Female,Arabic,Marketplace,Breast,Referral Ordered,58,Language / Communication,Transportation Access,Critical,5,1,0,false,true,true,Requires interpreter and transportation assistance before consult.
+PT-3202,Jose Ramirez,55,Male,Spanish,Medicaid,Lung,Consult Scheduled,44,Transportation Access,Low Engagement,High,4,2,0,true,true,true,Missed prior visit because ride failed.
+PT-3203,Mei Chen,67,Female,Mandarin,Medicare,GI,Diagnostic Workup,39,Language / Communication,Insurance / Authorization,High,3,0,8,true,false,true,Family requests translated instructions and auth follow-up.
+PT-3204,Renee Thomas,60,Female,English,Commercial,Colorectal,Consult Completed,29,Social Complexity,Psychosocial,Moderate,4,1,0,true,false,false,Housing instability is affecting follow-up reliability.

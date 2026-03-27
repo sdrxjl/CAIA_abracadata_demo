@@ -1,46 +1,15 @@
 # CAIA Navigator
 
-CAIA Navigator is a local prototype for cancer navigation workflow support. It combines a lightweight Python server with a browser-based UI for managing a patient queue, importing CSV files, classifying barriers, and previewing simple rule-based risk signals.
+CAIA Navigator is a local prototype for cancer navigation workflow support. It lets you manage a patient queue, import CSV data, classify barriers, and preview simple rule-based risk predictions for delay, disengagement, and access risk.
 
-This is a prototype application for demonstration and workflow exploration. It is not a production clinical system and should not be used for medical decision-making.
+This project is designed as a lightweight local app:
+- Python serves the app and local API
+- The browser provides the UI
+- Data is stored in a local `patients.json` file
 
-## What It Does
+## Core Files
 
-- Maintains a local patient queue backed by `patients.json`
-- Supports add, edit, single delete, and batch delete
-- Imports CSV files into the queue
-- Detects unchanged duplicate rows and skips them
-- Detects Patient ID conflicts and lets the user choose how to resolve them
-- Prevents duplicate Patient IDs during manual entry
-- Generates simple rule-based predictions for:
-  - overall delay risk
-  - delay sub-risk
-  - disengagement sub-risk
-  - access sub-risk
-- Suggests:
-  - primary barrier
-  - secondary barrier
-  - queue priority
-  - intervention package
-
-## App Architecture
-
-This project runs as a local file-backed web app:
-
-- `caia_navigator_server.py` provides the local HTTP server and API
-- `caia_navigator_file_app.html` provides the browser UI
-- `patients.json` stores the current local dataset
-- `start_caia_navigator.bat` launches the app on Windows
-
-The app is intentionally simple:
-- no database
-- no authentication
-- no multi-user synchronization
-- no external dependencies beyond Python standard library
-
-## Main Files
-
-Core files:
+These are the main files to upload:
 
 - `start_caia_navigator.bat`
 - `caia_navigator_server.py`
@@ -48,26 +17,32 @@ Core files:
 - `patients.json`
 - `README.md`
 
-Example CSV files:
+Optional sample CSV files are also included for testing imports.
 
-- `caia_navigator_example_import.csv`
-- `caia_navigator_example_high_risk.csv`
-- `caia_navigator_example_mixed_queue.csv`
-- `caia_navigator_example_access_barriers.csv`
-- `caia_navigator_example_low_risk.csv`
+## Features
 
-Other local/demo files in this folder are optional and not required to run the main file-backed app.
+- Patient queue with filtering and sorting
+- Add, edit, and delete patient records
+- Batch delete from the queue
+- CSV import with duplicate detection
+- CSV conflict review when the same Patient ID belongs to different patient data
+- Rule-based prediction preview for:
+  - overall delay risk
+  - delay sub-risk
+  - disengagement sub-risk
+  - access sub-risk
+- Suggested barrier classification and intervention package
+- Local persistence to `patients.json`
 
 ## Requirements
 
 - Windows
 - Python 3
-- A local browser such as Chrome or Edge
 
-At least one of the following must work in Command Prompt:
+One of these must work in Command Prompt:
 
 ```bat
-C:\Users\hanyi\anaconda3\python.exe
+%USERPROFILE%\anaconda3\python.exe
 ```
 
 or
@@ -82,39 +57,28 @@ or
 python
 ```
 
-## Run The App
+## Run Locally
 
-### Option 1: Double-click the launcher
+### Option 1: Double-click
 
-Run:
+Double-click:
 
 ```bat
 start_caia_navigator.bat
 ```
 
-This will:
-- try to find a usable Python executable
-- start the local server
-- open the app in your default browser
+### Option 2: Command Prompt
 
-### Option 2: Run from Command Prompt
-
-Open Command Prompt in the project folder and run one of:
+Open Command Prompt in the project folder and run:
 
 ```bat
-C:\Users\hanyi\anaconda3\python.exe -u caia_navigator_server.py
+%USERPROFILE%\anaconda3\python.exe -u caia_navigator_server.py
 ```
 
 or
 
 ```bat
 py -3 -u caia_navigator_server.py
-```
-
-or
-
-```bat
-python -u caia_navigator_server.py
 ```
 
 Then open:
@@ -124,152 +88,45 @@ http://127.0.0.1:8000/
 ```
 
 Important:
-
-- Do not close the server window while using the app
-- The app writes local data into `patients.json`
-- Runtime output is written to `server.log`
-
-## Typical Workflow
-
-1. Start the app.
-2. Open the `Patient Queue` page to review current records.
-3. Use `Data Entry` to add or edit a patient.
-4. Use the prediction panel to preview risk and barrier logic.
-5. Import CSV files when you want to load a larger queue.
-6. Use queue filtering, selection, and batch delete to manage the worklist.
+- Do not close the server window while using the app.
+- Data is saved locally in `patients.json`.
+- Runtime logs are written to `server.log`.
 
 ## CSV Import Behavior
 
 The CSV importer supports:
 
-- importing new patients
-- updating existing patients
-- skipping unchanged duplicate rows
-- conflict review for reused Patient IDs with different patient details
+- normal import for new patients
+- skipping unchanged duplicates
+- conflict detection when the same `id` has different patient details
 
-### Duplicate Handling
+If a CSV row reuses an existing Patient ID but the data differs, the app opens a conflict modal and lets you choose:
 
-If a CSV row has the same Patient ID and the same normalized data as an existing record:
+- overwrite the existing patient
+- generate a new Patient ID
+- skip that row
 
-- the row is skipped automatically
+## Patient ID Rules
 
-If a CSV row has the same Patient ID but different patient data:
+- Manual entry checks whether a Patient ID already exists
+- Duplicate IDs are blocked during form save
+- The UI includes a `Generate ID` button for creating the next available `PT-xxxx` value
 
-- the app opens a conflict modal
-- the user can choose one of:
-  - overwrite the existing patient
-  - generate a new Patient ID
-  - skip that incoming row
+## Sample CSV Files
 
-### Manual Entry Protection
+Example files included in this project:
 
-The `Patient ID` field in the form includes:
+- `caia_navigator_example_import.csv`
+- `caia_navigator_example_high_risk.csv`
+- `caia_navigator_example_mixed_queue.csv`
+- `caia_navigator_example_access_barriers.csv`
+- `caia_navigator_example_low_risk.csv`
 
-- real-time duplicate detection
-- save blocking when the ID already exists
-- a `Generate ID` button for the next available `PT-xxxx`
+## Notes
 
-## CSV Template Expectations
+This is a prototype, not a production clinical system.
 
-The importer expects these fields:
-
-- `id`
-- `name`
-- `age`
-- `gender`
-- `language`
-- `payer`
-- `cancerType`
-- `stage`
-- `daysSinceFinding`
-- `primaryBarrier`
-- `secondaryBarrier`
-- `priority`
-- `socialRisk`
-- `missedVisits`
-- `insuranceDelayDays`
-- `referralComplete`
-- `transportationRisk`
-- `languageBarrier`
-- `notes`
-
-Each row represents one patient.
-
-## Risk Logic
-
-The prediction system is intentionally transparent and rule-based. It is not a trained machine learning model.
-
-The current UI estimates:
-
-- overall delay risk
-- delay risk
-- disengagement risk
-- access risk
-
-These estimates are based on fields such as:
-
-- `daysSinceFinding`
-- `referralComplete`
-- `insuranceDelayDays`
-- `missedVisits`
-- `transportationRisk`
-- `languageBarrier`
-- `language`
-- `socialRisk`
-- `stage`
-
-The UI then suggests:
-
-- queue priority
-- likely primary barrier
-- likely secondary barrier
-- recommended intervention package
-
-## Local Data Storage
-
-The app stores queue data locally in:
-
-```text
-patients.json
-```
-
-This means:
-
-- imported data persists between sessions
-- edits persist between sessions
-- deletes persist between sessions
-
-It also means:
-
-- this is best for single-user local use
-- concurrent editing by multiple users is not supported
-
-## Limitations
-
-- Windows-first launcher
-- file-based persistence only
-- no user accounts
-- no audit trail
-- no database locking
-- no production deployment hardening
-- no clinical validation
-
-## Recommended GitHub Upload Set
-
-If you want a minimal upload set for the working local app, include:
-
-- `start_caia_navigator.bat`
-- `caia_navigator_server.py`
-- `caia_navigator_file_app.html`
-- `patients.json`
-- `README.md`
-
-If you also want demo content for testing imports, include the example CSV files as well.
-
-## Disclaimer
-
-This repository contains a workflow and UI prototype only.
-
-- It is not a medical device
-- It is not clinically validated
-- It is not intended for diagnosis or treatment decisions
+- Risk logic is rule-based, not a trained medical model
+- Data storage is file-based
+- Multi-user concurrent editing is not supported
+- This should not be used for clinical decision-making

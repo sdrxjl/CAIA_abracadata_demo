@@ -1,0 +1,5 @@
+id,name,age,gender,language,payer,cancerType,stage,daysSinceFinding,primaryBarrier,secondaryBarrier,priority,socialRisk,missedVisits,insuranceDelayDays,referralComplete,transportationRisk,languageBarrier,notes
+PT-3301,Grace Miller,52,Female,English,Commercial,Breast,Consult Completed,12,Scheduling Friction,,Routine,0,0,0,true,false,false,Workup is on track and patient is engaged.
+PT-3302,Owen Carter,59,Male,English,Commercial,Prostate,Treatment Started,8,Psychosocial,,Routine,1,0,0,true,false,false,Treatment started and follow-up plan is documented.
+PT-3303,Irene Novak,64,Female,English,Medicare,Colorectal,Treatment Planning,14,Insurance / Authorization,,Moderate,1,0,3,true,false,false,Minor auth issue but patient remains engaged.
+PT-3304,Paul Singh,47,Male,English,Commercial,Lung,Consult Scheduled,21,Scheduling Friction,,Routine,1,0,0,true,false,false,Needs standard reminder before consult.

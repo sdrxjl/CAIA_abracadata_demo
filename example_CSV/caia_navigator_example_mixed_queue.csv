@@ -1,0 +1,6 @@
+id,name,age,gender,language,payer,cancerType,stage,daysSinceFinding,primaryBarrier,secondaryBarrier,priority,socialRisk,missedVisits,insuranceDelayDays,referralComplete,transportationRisk,languageBarrier,notes
+PT-3101,Elena Park,49,Female,English,Commercial,Breast,Abnormal Finding,19,Scheduling Friction,,Routine,1,0,0,true,false,false,New finding and early outreach completed.
+PT-3102,Marcus Hill,65,Male,English,Medicare,Prostate,Consult Scheduled,34,Low Engagement,Scheduling Friction,Moderate,2,1,0,true,false,false,Missed one consult confirmation call.
+PT-3103,Sofia Cruz,58,Female,Spanish,Medicaid,GI,Referral Ordered,46,Language / Communication,Transportation Access,High,4,1,0,false,true,true,Needs interpreter and ride coordination.
+PT-3104,Daniel Wu,54,Male,English,Commercial,Lung,Diagnostic Workup,41,Insurance / Authorization,Diagnostic Backlog,High,2,0,9,true,false,false,Pending approval is slowing diagnostics.
+PT-3105,Linda Price,71,Female,English,Medicare,Colorectal,Treatment Planning,16,Psychosocial,Social Complexity,Moderate,3,1,0,true,false,false,Anxious about treatment start and needs navigator reinforcement.

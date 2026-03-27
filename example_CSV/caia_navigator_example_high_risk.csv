@@ -1,0 +1,5 @@
+id,name,age,gender,language,payer,cancerType,stage,daysSinceFinding,primaryBarrier,secondaryBarrier,priority,socialRisk,missedVisits,insuranceDelayDays,referralComplete,transportationRisk,languageBarrier,notes
+PT-3001,Ana Morales,68,Female,Spanish,Medicaid,Lung,Referral Ordered,84,Language / Communication,Transportation Access,Critical,5,2,0,false,true,true,Needs bilingual outreach and same-day referral escalation.
+PT-3002,Harold Jenkins,73,Male,English,Medicare,Colorectal,Diagnostic Workup,63,Diagnostic Backlog,Insurance / Authorization,High,3,1,11,true,false,false,Workup is delayed and payer review is still open.
+PT-3003,Nadia Rahman,57,Female,Arabic,Marketplace,Breast,Consult Scheduled,52,Language / Communication,Care Fragmentation,High,4,1,0,false,false,true,Interpreter needed and referral handoff is incomplete.
+PT-3004,Victor Alvarez,61,Male,English,Commercial,GI,Biopsy / Path,47,Insurance / Authorization,Scheduling Friction,High,2,0,14,true,false,false,Authorization delay is blocking biopsy completion.
