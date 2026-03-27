@@ -1,4 +1,4 @@
-CAIA Navigator
+Abracadata Demo
 
 How to run on another Windows computer:
 
